@@ -10,11 +10,12 @@ colorama.init(autoreset=True)
 text = "Alone Stand Larka"
 f = pyfiglet.Figlet(font='slant')
 
+# Print ASCII art with color and delay
 for char in f.renderText(text):
     print(Fore.RED + char + Style.RESET_ALL, end='', flush=True)
     time.sleep(0.01)
 
-print(Fore.GREEN + "Welcome in Cyber Tricks World...")
+print(Fore.GREEN + "Welcome to Cyber Tricks World...")
 
 # Open YouTube channel
 print(Fore.GREEN + "Opening YouTube channel...")
@@ -22,58 +23,49 @@ webbrowser.open("http://www.youtube.com/@TeamAloneStandLarka")
 
 # Print options with color blue
 print(Fore.BLUE + "Select Attack Number:")
-for i in range(1, 8):
-    if i == 1:
-        print(Fore.BLUE + f"{i}. Android Camera Hacking (With Link)")
-    elif i == 2:
-        print(Fore.BLUE + f"{i}. Gallery Hacking")
-    elif i == 3:
-        print(Fore.BLUE + f"{i}. SMS Hacking")
-    elif i == 4:
-        print(Fore.BLUE + f"{i}. WhatsApp Hacking")
-    elif i == 5:
-        print(Fore.BLUE + f"{i}. Location")
-    elif i == 6:
-        print(Fore.BLUE + f"{i}. Banner")
-    elif i == 7:
-        print(Fore.BLUE + f"{i}. All Social Media Hacking")
+options = [
+    "Android Camera Hacking (With Link)",
+    "Gallery Hacking",
+    "SMS Hacking",
+    "WhatsApp Hacking",
+    "Location",
+    "Banner",
+    "All Social Media Hacking",
+    "3 Tools",
+    "Basics Download",
+    "All Social Media Hacking"
+]
+
+for i, option in enumerate(options, 1):
+    print(Fore.BLUE + f"{i}. {option}")
 
 # Get user input
 choice = input(Fore.GREEN + "Enter your choice: ")
 
 # Handle user input
-if choice == "1":
+links = {
+    "1": "https://t.me/YouCanTrackRobot",
+    "2": "https://youtu.be/fIzh24yhhoA?si=nxRzmDMiN5aCZ3wQ",
+    "3": "https://youtu.be/fIzh24yhhoA?si=nxRzmDMiN5aCZ3wQ",
+    "4": "https://youtu.be/AXc_W2UssEI?si=IeB1oKyEsOJ9WEan",
+    "5": "https://iplogger.org/",
+}
+
+commands = {
+    "6": "pkg install python -y && pip install termux-banner && banner",
+    "7": "pkg update -y && pkg install wget -y && wget -qO- https://github.com/Bhaviktutorials/shark/raw/master/setup | bash",
+    "8": "apt update && apt upgrade && git clone https://github.com/AloneStandLarkaAnas/3-Tools.git && cd 3-Tools && python3 Tools.py",
+    "9": "apt update && git clone https://github.com/AloneStandLarkaAnas/Basics.git && cd Basics && python3 Basics.py",
+    "10": "apt update && git clone https://github.com/AloneStandLarkaAnas/Basics.git && cd Basics && python3 Basics.py",
+}
+
+if choice in links:
     print(Fore.GREEN + "Opening link...")
-    webbrowser.open("https://t.me/YouCanTrackRobot")
-    print(Fore.GREEN + "Camera Hacking Close")
-elif choice == "2":
-    print(Fore.GREEN + "Opening link...")
-    webbrowser.open("https://youtu.be/fIzh24yhhoA?si=nxRzmDMiN5aCZ3wQ")
-    print(Fore.GREEN + "Gallery Hacking Close")
-elif choice == "3":
-    print(Fore.GREEN + "Opening link...")
-    webbrowser.open("https://youtu.be/fIzh24yhhoA?si=nxRzmDMiN5aCZ3wQ")
-    print(Fore.GREEN + "Setup Same of Gallery and Sms Hacking So comment")
-elif choice == "4":
-    print(Fore.GREEN + "Opening link...")
-    webbrowser.open("https://youtu.be/AXc_W2UssEI?si=IeB1oKyEsOJ9WEan")
-    print(Fore.GREEN + "WhatsApp Hacking Close")
-elif choice == "5":
-    print(Fore.GREEN + "Opening link...")
-    webbrowser.open("https://iplogger.org/")
-    print(Fore.GREEN + "Location Hacking Close")
-elif choice == "6":
-    print(Fore.GREEN + "Opening link...")
-    os.system("pkg install python -y && pip install termux-banner && banner")
-    print(Fore.GREEN + "Setup Same of Gallery and Sms Hacking So comment")
-elif choice == "7":
-    print(Fore.GREEN + "Opening link...")
-    os.system("pkg update -y && pkg install wget -y && wget -qO- https://github.com/Bhaviktutorials/shark/raw/master/setup | bash")
-    print(Fore.GREEN + "Gallery Hacking Close")
+    webbrowser.open(links[choice])
+    print(Fore.GREEN + f"{options[int(choice) - 1]} Close")
+elif choice in commands:
+    print(Fore.GREEN + "Executing command...")
+    os.system(commands[choice])
+    print(Fore.GREEN + f"{options[int(choice) - 1]} Close")
 else:
     print(Fore.RED + "Invalid choice. Please try again.")
-
-# Print running commands with color green
-print(Fore.GREEN + "Running commands...")
-# Add your commands here
-print(Fore.GREEN + "Commands executed successfully!")
